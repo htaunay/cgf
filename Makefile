@@ -1,10 +1,11 @@
 CC = g++
 CFLAGS = -std=c++11 -Wall
-SRCS = src/Node.cpp src/Edge.cpp src/CornerTable.cpp
+INCLUDES = -Isrc/include/
+SRCS = $(wildcard src/*.cpp)
 TARGET = corner
 
 build: $(OBJS)
-	@$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(SRCS) -o $(TARGET)
 
 run:
 	@./$(TARGET)
