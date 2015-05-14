@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -std=c++11 -Wall
-OBJS = node.cpp corner.cpp
+OBJS = node.cpp edge.cpp corner.cpp
 TARGET = corner
 
 build: $(OBJS)

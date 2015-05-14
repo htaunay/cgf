@@ -5,25 +5,9 @@
 #include <vector>
 
 #include "node.h"
+#include "edge.h"
 
 std::vector<int> V({0,1,3,1,2,4,1,4,3,3,4,5});
-
-struct Edge
-{
-    Edge(int f, int s)
-    {
-        first = f;
-        second = s;
-    }
-
-    int first;
-    int second;
-
-    bool operator<(const Edge& e) const
-    {
-        return first < e.first || (first == e.first && second < e.second);
-    }
-};
 
 std::map<Edge,unsigned int> edges;
 void buildEdges()
@@ -37,7 +21,7 @@ void buildEdges()
     }
 }
 
-unsigned int prevCorner(unsigned int corner)
+unsigned int nextCorner(unsigned int corner)
 {
     return (3 * (corner/3)) + ((corner+1) % 3);
 }
@@ -89,8 +73,8 @@ void buildOpposites()
 
             if(edges.find(candidate) != edges.end())
             {
-                O[prevCorner(edges[candidate])] = prevCorner(edges[current]);
-                O[prevCorner(edges[current])]   = prevCorner(edges[candidate]);
+                O[nextCorner(edges[candidate])] = nextCorner(edges[current]);
+                O[nextCorner(edges[current])]   = nextCorner(edges[candidate]);
             }
         }
     
@@ -98,11 +82,11 @@ void buildOpposites()
         queue.erase(queue.begin());
     }
 
-    queue.clear();
-    delete [] O;
-
     for(unsigned int i = 0; i < size; i++)
         printf("O[%d] = %d\n", i, O[i]);
+
+    queue.clear();
+    delete [] O;
 }
 
 int main(void)
