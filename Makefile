@@ -1,10 +1,10 @@
 CC = g++
 CFLAGS = -std=c++11 -Wall
-OBJS = node.cpp edge.cpp corner.cpp
+SRCS = src/Node.cpp src/Edge.cpp src/CornerTable.cpp
 TARGET = corner
 
 build: $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+	@$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
 run:
 	@./$(TARGET)

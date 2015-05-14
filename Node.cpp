@@ -1,4 +1,4 @@
-#include "node.h"
+#include "./node.h"
 
 Node::Node(unsigned int id)
 {
