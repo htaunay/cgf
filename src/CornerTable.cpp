@@ -3,13 +3,43 @@
 
 #include <map>
 #include <vector>
+#include <string>
 
-#include "node.h"
-#include "edge.h"
+#include <Node.h>
+#include <Edge.h>
 
-std::vector<int> V({0,1,3,1,2,4,1,4,3,3,4,5});
+#define MAX_CHARS_PER_LINE 512
 
+int* O;
+Node** nodes;
+std::vector<int> V;
+unsigned int numVertices;
 std::map<Edge,unsigned int> edges;
+
+void loadFile(std::string fileName)
+{
+	FILE * file;
+	file = fopen(fileName.c_str(), "r");
+
+	int numTriangles;
+	fscanf(file, "%d %d", &numVertices, &numTriangles);
+
+	float a,b,c;
+	for(int i = 0; i < numVertices; i++)
+		fscanf(file, "%f %f %f", &a, &b, &c);
+
+	int line, p1, p2, p3;
+	for(int i = 0; i < numTriangles; i++)
+	{
+		fscanf(file, "%d %d %d %d", &line, &p1, &p2, &p3);
+		V.push_back(p1);
+		V.push_back(p2);
+		V.push_back(p3);
+	}
+
+	fclose(file);
+}
+
 void buildEdges()
 {
     unsigned int size = V.size();
@@ -26,12 +56,9 @@ unsigned int nextCorner(unsigned int corner)
     return (3 * (corner/3)) + ((corner+1) % 3);
 }
 
-Node* root;
-Node** nodes = new Node*[6];
 void buildGraph()
 {
-    // Initialize nodes list
-    for(unsigned int i = 0; i < 6; i++)
+    for(unsigned int i = 0; i < numVertices; i++)
         nodes[i] = new Node(i);
     
     unsigned int size = V.size();
@@ -43,12 +70,11 @@ void buildGraph()
     }   
 }
 
-int* O = new int[V.size()];
 void buildOpposites()
 {
     unsigned int size = V.size();
     for(unsigned int i = 0; i < size; i++)
-        O[i] = -1;
+		O[i] = -1;
 
     std::vector<Node*> queue;
     queue.push_back(nodes[0]);
@@ -83,14 +109,21 @@ void buildOpposites()
     }
 
     for(unsigned int i = 0; i < size; i++)
-        printf("O[%d] = %d\n", i, O[i]);
+        printf("%d ", O[i]);
+	printf("\n");
 
     queue.clear();
     delete [] O;
 }
 
-int main(void)
+int main(int argc, char** argv)
 {
+	std::string fileName(argv[1]);
+	loadFile(fileName);
+
+	nodes = new Node*[numVertices];
+	O = new int[V.size()];
+
     buildEdges();
     buildGraph();
     buildOpposites();
@@ -98,7 +131,7 @@ int main(void)
     V.clear();
     edges.clear();
 
-    for(unsigned int i = 0; i < 6; i++)
+    for(unsigned int i = 0; i < numVertices; i++)
          delete nodes[i];
     delete [] nodes;
 }

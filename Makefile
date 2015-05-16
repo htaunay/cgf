@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++11 -Wall
+CFLAGS = -std=c++11 -Wall -m64
 INCLUDES = -Isrc/include/
 SRCS = $(wildcard src/*.cpp)
 TARGET = corner
@@ -14,6 +14,6 @@ clean:
 	@rm -f *.o $(TARGET)
 
 check: clean build
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(TARGET)
+	@valgrind ./$(TARGET) test/input/hexagon.txt
 
 build_and_run: clean build run
