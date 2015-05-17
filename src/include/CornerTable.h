@@ -1,3 +1,6 @@
+#ifndef __CORNER_TABLE__
+#define __CORNER_TABLE__
+
 #include <map>
 #include <string>
 #include <vector>
@@ -15,14 +18,22 @@ class CornerTable
 
         static std::vector<unsigned int> loadIndexes(std::string fileName);
 
+        static unsigned int nextCorner(unsigned int corner);
+        static unsigned int prevCorner(unsigned int corner);
+
         static std::map<Edge, unsigned int>
-        buildEdges(std::vector<uint> vertices);
+        buildEdges(std::vector<unsigned int> vertices);
 
-        static uint nextCorner(uint corner);
+        static std::vector<Node*> buildGraph(
+                std::vector<unsigned int> vertices);
 
-        static std::vector<Node*> buildGraph(std::vector<uint> vertices);
+        static std::vector<int> buildOpposites(
+                std::map<Edge,unsigned int> edges, std::vector<Node*> nodes,
+                unsigned int numvertices);
 
-        static std::vector<int> buildOpposites(std::map<Edge,
-                unsigned int> edges, std::vector<Node*> nodes,
-                unsigned int numVertices);
+        static std::vector<int> buildHalfEdges(
+                std::map<Edge,unsigned int> edges, std::vector<Node*> nodes,
+                unsigned int numvertices);
 };
+
+#endif

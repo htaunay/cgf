@@ -5,7 +5,8 @@
 
 std::vector<int> LoadResults(std::string fileName, int numElements)
 {
-	FILE * file = fopen(fileName.c_str(), "r");
+	FILE * file;
+	file = fopen(fileName.c_str(), "r");
 
     int element;
     std::vector<int> results;
@@ -21,17 +22,21 @@ std::vector<int> LoadResults(std::string fileName, int numElements)
 
 bool TestFile(std::string fileName)
 {
-    std::vector<int> table = CornerTable::BuildCornerTable(
+    std::vector<int> table = CornerTable::BuildCHE(
             "./test/input/" + fileName + ".txt");
     std::vector<int> results =
-    LoadResults("./test/results/corner_" + fileName + ".txt", table.size());
+    LoadResults("./test/results/che_" + fileName + ".txt", table.size());
 
     for(unsigned int i = 0; i < results.size(); i++)
     {
         if(table[i] != results[i])
         {
+            printf("Expected: ");
             for(unsigned int i = 0; i < results.size(); i++)
                 printf("%d ", results[i]);
+            printf("\nGot: ");
+            for(unsigned int i = 0; i < results.size(); i++)
+                printf("%d ", table[i]);
             printf("\n");
 
             return false;
@@ -49,9 +54,7 @@ int main(void)
     (TestFile("triangle"))  ? passed++ : failed++;
     (TestFile("hexagon"))   ? passed++ : failed++;
     (TestFile("icosaedro")) ? passed++ : failed++;
-    (TestFile("domo"))      ? passed++ : failed++;
 
     printf("%d tests passed, %d tests failed\n", passed, failed);
-
-    return 1;
 }
+
