@@ -1,3 +1,6 @@
+#ifndef __EDGE__
+#define __EDGE__
+
 class Edge
 {
     public:
@@ -12,3 +15,4 @@ class Edge
         unsigned int _to;
 };
 
+#endif

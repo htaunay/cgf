@@ -1,4 +1,4 @@
-#include <edge.h>
+#include <Edge.h>
 
 Edge::Edge(unsigned int from, unsigned int to)
 {

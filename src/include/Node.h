@@ -1,3 +1,6 @@
+#ifndef __NODE__
+#define __NODE__
+
 #include <vector>
 
 class Node
@@ -20,3 +23,5 @@ class Node
         bool _visited;
         std::vector<Node*> _connections;
 };
+
+#endif
