@@ -1,6 +1,7 @@
 *.*sw[po]
 corner
 run-tests
+opposites
 tags
 *.dSYM
 *.output

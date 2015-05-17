@@ -18,6 +18,12 @@ void printOutput(std::string fileName, std::vector<int> table)
 
 int main(int argc, char** argv)
 {
+    if(argc !=3 )
+    {
+        printf("Please inform two params: [-corner|-che] <filename>\n");
+        return 0;
+    }
+
     std::string mode(argv[1]);
     std::string fileName(argv[2]);
 
