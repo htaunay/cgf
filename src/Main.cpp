@@ -31,11 +31,11 @@ int main(int argc, char** argv)
    
     if(mode.compare("-corner") == 0)
     {
-        table = CornerTable::BuildCornerTable(fileName);
+        table = CornerTable::BuildOpposites(CornerTable::Corner, fileName);
     }
     else if(mode.compare("-che") == 0)
     {
-        table = CornerTable::BuildCHE(fileName);
+        table = CornerTable::BuildOpposites(CornerTable::CHE, fileName);
     }
     else
     {

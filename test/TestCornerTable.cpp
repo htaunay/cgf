@@ -21,7 +21,7 @@ std::vector<int> LoadResults(std::string fileName, int numElements)
 
 bool TestFile(std::string fileName)
 {
-    std::vector<int> table = CornerTable::BuildCornerTable(
+    std::vector<int> table = CornerTable::BuildOpposites(CornerTable::Corner,
             "./test/input/" + fileName + ".txt");
     std::vector<int> results =
     LoadResults("./test/results/corner_" + fileName + ".txt", table.size());

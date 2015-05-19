@@ -11,8 +11,15 @@
 class CornerTable
 {
     public:
-        static std::vector<int> BuildCornerTable(std::string fileName);
-        static std::vector<int> BuildCHE(std::string fileName);
+
+        enum Method
+        {
+            Corner,
+            CHE
+        };
+
+        static std::vector<int>
+        BuildOpposites(Method method, std::string fileName);
 
     private:
 
@@ -27,11 +34,7 @@ class CornerTable
         static std::vector<Node*> buildGraph(
                 std::vector<unsigned int> vertices);
 
-        static std::vector<int> buildOpposites(
-                std::map<Edge,unsigned int> edges, std::vector<Node*> nodes,
-                unsigned int numvertices);
-
-        static std::vector<int> buildHalfEdges(
+        static std::vector<int> buildOpposites(Method method,
                 std::map<Edge,unsigned int> edges, std::vector<Node*> nodes,
                 unsigned int numvertices);
 };

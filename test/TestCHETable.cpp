@@ -22,7 +22,7 @@ std::vector<int> LoadResults(std::string fileName, int numElements)
 
 bool TestFile(std::string fileName)
 {
-    std::vector<int> table = CornerTable::BuildCHE(
+    std::vector<int> table = CornerTable::BuildOpposites(CornerTable::CHE,
             "./test/input/" + fileName + ".txt");
     std::vector<int> results =
     LoadResults("./test/results/che_" + fileName + ".txt", table.size());
