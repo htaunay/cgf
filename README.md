@@ -5,7 +5,7 @@
 Given an description of a 3D mesh, through a vertex and triangulation arrays,
 this program returns the opposites table for both approaches, an alternative
 data-structure for describing and dealing with polygon meshes. See
-(references)[#references] for more info. 
+[references](#references) for more info. 
 
 ## Up and running
 
@@ -54,7 +54,7 @@ Running tests consist of one command per operation, and no parameters need to be
 
 ## References
 
-* (CHE: A scalable topological data structure for triangular meshes)[http://www.matmidia.mat.puc-rio.br/tomlew/pdfs/che_puc.pdf]
-* (Combinatorial Maps - Chapter 9)[https://books.google.com.br/books?id=0J7NBQAAQBAJ&pg=PA341&lpg=PA341&dq=half-edge+corner-table+opposites&source=bl&ots=L29K1rjG6W&sig=p8dLoJ3D3GaJDcyoPVSNC2Re04w&hl=en&sa=X&ei=PVBdVd-IOJWQsQSp0oCIAQ&ved=0CB0Q6AEwAA#v=onepage&q=half-edge%20corner-table%20opposites&f=false]
-* (Building a Corner Table)[http://www.cc.gatech.edu/~lena007/cs4451_p2/corner_tab.html]
-* (Polygon Mesh - Wikipedia)[http://en.wikipedia.org/wiki/Polygon_mesh]
+* [CHE: A scalable topological data structure for triangular meshes](http://www.matmidia.mat.puc-rio.br/tomlew/pdfs/che_puc.pdf)
+* [Combinatorial Maps - Chapter 9](https://books.google.com.br/books?id=0J7NBQAAQBAJ&pg=PA341&lpg=PA341&dq=half-edge+corner-table+opposites&source=bl&ots=L29K1rjG6W&sig=p8dLoJ3D3GaJDcyoPVSNC2Re04w&hl=en&sa=X&ei=PVBdVd-IOJWQsQSp0oCIAQ&ved=0CB0Q6AEwAA#v=onepage&q=half-edge%20corner-table%20opposites&f=false)
+* [Building a Corner Table](http://www.cc.gatech.edu/~lena007/cs4451_p2/corner_tab.html)
+* [Polygon Mesh - Wikipedia](http://en.wikipedia.org/wiki/Polygon_mesh)
