@@ -1,5 +1,7 @@
 # Corner-table and CHE opposites table generator
 
+[![Join the chat at https://gitter.im/htaunay/opposites](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/htaunay/opposites?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## What does it do?
 
 Given an description of a 3D mesh, through a vertex and triangulation arrays,
